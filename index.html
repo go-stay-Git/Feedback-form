@@ -132,25 +132,29 @@
   document.querySelectorAll('.star-rating').forEach(container => {
     const name = container.getAttribute('data-rating');
     const stars = container.querySelectorAll('.star');
+
     stars.forEach(star => {
       star.addEventListener('click', function() {
         const val = parseInt(this.getAttribute('data-value'));
         ratings[name] = val;
-        stars.forEach(s=>s.classList.toggle('active', parseInt(s.getAttribute('data-value'))<=val));
+        stars.forEach(s => s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= val));
       });
+
       star.addEventListener('mouseenter', function() {
         const val = parseInt(this.getAttribute('data-value'));
-        stars.forEach(s=>s.style.color=(parseInt(s.getAttribute('data-value'))<=val?'#ffc107':'#ddd'));
+        stars.forEach(s => s.style.color = (parseInt(s.getAttribute('data-value')) <= val ? '#ffc107' : '#ddd'));
       });
+
       container.addEventListener('mouseleave', function() {
         const current = ratings[name] || 0;
-        stars.forEach(s=>s.style.color=(parseInt(s.getAttribute('data-value'))<=current?'#ffc107':'#ddd'));
+        stars.forEach(s => s.style.color = (parseInt(s.getAttribute('data-value')) <= current ? '#ffc107' : '#ddd'));
       });
     });
   });
 
   document.getElementById('feedbackForm').addEventListener('submit', function(e){
     e.preventDefault();
+
     const formData = {
       guestName: document.getElementById('guestName').value,
       email: document.getElementById('email').value,
@@ -161,23 +165,33 @@
       ratings: ratings
     };
 
-    // Replace this URL with your Apps Script Web App URL
-    fetch('https://script.google.com/macros/s/AKfycbwEZMavZZFWoZJpgu70KPblzIS4jRV0Vqz9jUYvN9DLkOptOl1XBp7J9l0aUkPjPqxq/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbzMVV65whqIUnxZ4V1osfRfbBK9UpaSA2_iqeXJdbLdyUP35A4d9u_lugG2JAQ2sTTs/exec', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(formData)
-    }).then(response=>{
-      if(response.ok){
-        document.getElementById('successMessage').style.display='block';
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.status === 'success'){
+        document.getElementById('successMessage').style.display = 'block';
         this.reset();
-        document.querySelectorAll('.star').forEach(s=>s.classList.remove('active'));
+        document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
         for(let key in ratings) delete ratings[key];
         window.scrollTo({top:0, behavior:'smooth'});
-        setTimeout(()=>document.getElementById('successMessage').style.display='none',5000);
+        setTimeout(() => document.getElementById('successMessage').style.display='none', 5000);
       } else {
         alert('Error submitting feedback. Please try again.');
+        console.error(data.message);
       }
-    }).catch(err=>alert('Error submitting feedback. Please try again.'));
+    })
+    .catch(err => {
+      alert('Error submitting feedback. Please try again.');
+      console.error(err);
+    });
   });
 </script>
+
 </body>
 </html>
