@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guest Feedback Form</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); min-height:100vh; padding:20px; display:flex; justify-content:center; align-items:center; }
-    .container { background:white; max-width:700px; width:100%; border-radius:20px; box-shadow:0 20px 60px rgba(0,0,0,0.3); overflow:hidden; }
-    .header { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; padding:40px 30px; text-align:center; }
-    .header h1 { font-size:28px; margin-bottom:10px; font-weight:600; }
-    .header p { font-size:16px; opacity:0.95; }
-    .form-content { padding:40px 30px; }
-    .form-section { margin-bottom:35px; }
-    .section-title { font-size:18px; color:#333; margin-bottom:15px; font-weight:600; display:flex; align-items:center; }
-    .section-title::before { content:''; width:4px; height:20px; background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); margin-right:10px; border-radius:2px; }
-    .star-rating { display:flex; gap:8px; margin-top:10px; }
-    .star { font-size:32px; cursor:pointer; color:#ddd; transition:all 0.2s ease; }
-    .star:hover, .star.active { color:#ffc107; transform:scale(1.1); }
-    .input-group { margin-bottom:25px; }
-    label { display:block; margin-bottom:8px; color:#555; font-weight:500; font-size:14px; }
-    input[type="text"], input[type="email"], input[type="tel"], textarea { width:100%; padding:12px 15px; border:2px solid #e0e0e0; border-radius:8px; font-size:14px; transition:all 0.3s ease; font-family:inherit; }
-    input:focus, textarea:focus { outline:none; border-color:#667eea; box-shadow:0 0 0 3px rgba(102,126,234,0.1); }
-    textarea { resize:vertical; min-height:100px; }
-    .submit-btn { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white; padding:15px 40px; border:none; border-radius:8px; font-size:16px; font-weight:600; cursor:pointer; width:100%; transition:all 0.3s ease; text-transform:uppercase; letter-spacing:1px; }
-    .submit-btn:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(102,126,234,0.4); }
-    .submit-btn:active { transform:translateY(0); }
-    .required { color:#e74c3c; }
-    .success-message { display:none; background:#d4edda; color:#155724; padding:15px; border-radius:8px; margin-bottom:20px; border:1px solid #c3e6cb; }
-    .rating-label { display:flex; justify-content:space-between; font-size:12px; color:#888; margin-top:5px; }
-    @media(max-width:600px){ .header h1{ font-size:24px; } .form-content{ padding:30px 20px; } .star{ font-size:28px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guest Feedback Form</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px;}
+.container{background:white;max-width:700px;width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.3);overflow:hidden;}
+.header{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:40px 30px;text-align:center;}
+.header h1{font-size:28px;margin-bottom:10px;font-weight:600;}
+.header p{font-size:16px;opacity:0.95;}
+.form-content{padding:40px 30px;}
+.form-section{margin-bottom:35px;}
+.section-title{font-size:18px;color:#333;margin-bottom:15px;font-weight:600;display:flex;align-items:center;}
+.section-title::before{content:'';width:4px;height:20px;background:linear-gradient(135deg,#667eea,#764ba2);margin-right:10px;border-radius:2px;}
+.star-rating{display:flex;gap:8px;margin-top:10px;}
+.star{font-size:32px;cursor:pointer;color:#ddd;transition:all 0.2s ease;}
+.star:hover,.star.active{color:#ffc107;transform:scale(1.1);}
+.input-group{margin-bottom:25px;}
+label{display:block;margin-bottom:8px;color:#555;font-weight:500;font-size:14px;}
+input[type="text"],input[type="email"],input[type="tel"],textarea{width:100%;padding:12px 15px;border:2px solid #e0e0e0;border-radius:8px;font-size:14px;transition:all 0.3s ease;font-family:inherit;}
+input:focus,textarea:focus{outline:none;border-color:#667eea;box-shadow:0 0 0 3px rgba(102,126,234,0.1);}
+textarea{resize:vertical;min-height:100px;}
+.submit-btn{background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:15px 40px;border:none;border-radius:8px;font-size:16px;font-weight:600;cursor:pointer;width:100%;transition:all 0.3s ease;text-transform:uppercase;letter-spacing:1px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(102,126,234,0.4);}
+.success-message{display:none;background:#d4edda;color:#155724;padding:15px;border-radius:8px;margin-bottom:20px;border:1px solid #c3e6cb;}
+.rating-label{display:flex;justify-content:space-between;font-size:12px;color:#888;margin-top:5px;}
+</style>
 </head>
 <body>
 <div class="container">
@@ -39,28 +36,27 @@
     <p>We value your opinion! Please share your experience with us</p>
   </div>
   <div class="form-content">
-    <div class="success-message" id="successMessage">Thank you for your feedback! Your response has been recorded.</div>
+    <div class="success-message" id="successMessage">Thank you for your feedback!</div>
     <form id="feedbackForm">
-      <!-- Guest Information -->
       <div class="form-section">
         <div class="input-group">
-          <label>Guest Name <span class="required">*</span></label>
-          <input type="text" id="guestName" required placeholder="Enter your full name">
+          <label>Guest Name *</label>
+          <input type="text" id="guestName" required>
         </div>
         <div class="input-group">
-          <label>Email Address <span class="required">*</span></label>
-          <input type="email" id="email" required placeholder="your.email@example.com">
+          <label>Email Address *</label>
+          <input type="email" id="email" required>
         </div>
         <div class="input-group">
           <label>Phone Number</label>
-          <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+          <input type="tel" id="phone">
         </div>
         <div class="input-group">
           <label>Room Number</label>
-          <input type="text" id="roomNumber" placeholder="e.g., 205">
+          <input type="text" id="roomNumber">
         </div>
         <div class="input-group">
-          <label>Check-in Date <span class="required">*</span></label>
+          <label>Check-in Date *</label>
           <input type="text" id="checkIn" required placeholder="MM/DD/YYYY">
         </div>
       </div>
@@ -75,51 +71,38 @@
       <div class="form-section">
         <div class="section-title">Bathroom Quality</div>
         <div class="star-rating" data-rating="bathroomQuality"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
       <div class="form-section">
         <div class="section-title">Overall Property Standard</div>
         <div class="star-rating" data-rating="propertyStandard"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
       <div class="form-section">
         <div class="section-title">Food Quality</div>
         <div class="star-rating" data-rating="foodQuality"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
       <div class="form-section">
         <div class="section-title">Restaurant Service</div>
         <div class="star-rating" data-rating="restaurantService"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
       <div class="form-section">
         <div class="section-title">Staff Behavior & Service</div>
         <div class="star-rating" data-rating="staffService"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
       <div class="form-section">
         <div class="section-title">Overall Experience</div>
         <div class="star-rating" data-rating="overallExperience"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Poor</span><span>Excellent</span></div>
       </div>
 
-      <!-- Comments -->
       <div class="form-section">
         <div class="input-group">
           <label>Additional Comments or Suggestions</label>
-          <textarea id="comments" placeholder="Please share any additional feedback, suggestions, or special experiences during your stay..."></textarea>
+          <textarea id="comments"></textarea>
         </div>
-      </div>
-
-      <div class="form-section">
-        <div class="section-title">Would you recommend our property to others?</div>
-        <div class="star-rating" data-rating="recommendation"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
-        <div class="rating-label"><span>Definitely Not</span><span>Absolutely</span></div>
       </div>
 
       <button type="submit" class="submit-btn">Submit Feedback</button>
@@ -128,70 +111,55 @@
 </div>
 
 <script>
-  const ratings = {};
-  document.querySelectorAll('.star-rating').forEach(container => {
-    const name = container.getAttribute('data-rating');
-    const stars = container.querySelectorAll('.star');
-
-    stars.forEach(star => {
-      star.addEventListener('click', function() {
-        const val = parseInt(this.getAttribute('data-value'));
-        ratings[name] = val;
-        stars.forEach(s => s.classList.toggle('active', parseInt(s.getAttribute('data-value')) <= val));
-      });
-
-      star.addEventListener('mouseenter', function() {
-        const val = parseInt(this.getAttribute('data-value'));
-        stars.forEach(s => s.style.color = (parseInt(s.getAttribute('data-value')) <= val ? '#ffc107' : '#ddd'));
-      });
-
-      container.addEventListener('mouseleave', function() {
-        const current = ratings[name] || 0;
-        stars.forEach(s => s.style.color = (parseInt(s.getAttribute('data-value')) <= current ? '#ffc107' : '#ddd'));
-      });
+const ratings = {};
+document.querySelectorAll('.star-rating').forEach(container=>{
+  const name = container.dataset.rating;
+  container.querySelectorAll('.star').forEach(star=>{
+    star.addEventListener('click',()=>{
+      const val=parseInt(star.dataset.value);
+      ratings[name]=val;
+      container.querySelectorAll('.star').forEach(s=>s.classList.toggle('active',s.dataset.value<=val));
+    });
+    star.addEventListener('mouseenter',()=>{
+      const val=parseInt(star.dataset.value);
+      container.querySelectorAll('.star').forEach(s=>s.style.color=(s.dataset.value<=val?'#ffc107':'#ddd'));
+    });
+    container.addEventListener('mouseleave',()=>{
+      const current=ratings[name]||0;
+      container.querySelectorAll('.star').forEach(s=>s.style.color=(s.dataset.value<=current?'#ffc107':'#ddd'));
     });
   });
+});
 
-  document.getElementById('feedbackForm').addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const formData = {
-      guestName: document.getElementById('guestName').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      roomNumber: document.getElementById('roomNumber').value,
-      checkIn: document.getElementById('checkIn').value,
-      comments: document.getElementById('comments').value,
-      ratings: ratings
-    };
-
-    fetch('https://script.google.com/macros/s/AKfycbzMVV65whqIUnxZ4V1osfRfbBK9UpaSA2_iqeXJdbLdyUP35A4d9u_lugG2JAQ2sTTs/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.status === 'success'){
-        document.getElementById('successMessage').style.display = 'block';
+document.getElementById('feedbackForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const formData={
+    guestName: document.getElementById('guestName').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    roomNumber: document.getElementById('roomNumber').value,
+    checkIn: document.getElementById('checkIn').value,
+    comments: document.getElementById('comments').value,
+    ratings: ratings
+  };
+  fetch('https://script.google.com/macros/s/AKfycbzY19mxZUHwkHHpJK3LealyJcGEN-Y_EiFfKsIuhv-h_u42EHrojBML2fjJoqFKgnE1/exec',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(formData)
+  }).then(res=>res.json())
+    .then(data=>{
+      if(data.status==='success'){
+        document.getElementById('successMessage').style.display='block';
         this.reset();
-        document.querySelectorAll('.star').forEach(s => s.classList.remove('active'));
-        for(let key in ratings) delete ratings[key];
-        window.scrollTo({top:0, behavior:'smooth'});
-        setTimeout(() => document.getElementById('successMessage').style.display='none', 5000);
-      } else {
-        alert('Error submitting feedback. Please try again.');
-        console.error(data.message);
+        document.querySelectorAll('.star').forEach(s=>s.classList.remove('active'));
+        for(let k in ratings) delete ratings[k];
+        window.scrollTo({top:0,behavior:'smooth'});
+        setTimeout(()=>document.getElementById('successMessage').style.display='none',5000);
+      }else{
+        alert('Error: '+data.message);
       }
-    })
-    .catch(err => {
-      alert('Error submitting feedback. Please try again.');
-      console.error(err);
-    });
-  });
+    }).catch(err=>alert('Error submitting feedback.'));
+});
 </script>
-
 </body>
 </html>
