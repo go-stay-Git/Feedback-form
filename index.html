@@ -141,26 +141,26 @@
       ratings: ratings
     };
 
-    fetch('https://script.google.com/macros/s/AKfycbzY19mxZUHwkHHpJK3LealyJcGEN-Y_EiFfKsIuhv-h_u42EHrojBML2fjJoqFKgnE1/exec', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.status === 'success'){
-        document.getElementById('successMessage').style.display='block';
-        e.target.reset();
-        document.querySelectorAll('.star').forEach(s=>s.classList.remove('active'));
-        for(let key in ratings) delete ratings[key];
-        window.scrollTo({top:0, behavior:'smooth'});
-        setTimeout(()=>document.getElementById('successMessage').style.display='none',5000);
-      } else {
-        alert('Error: ' + data.message);
-      }
-    })
-    .catch(err=>alert('Error submitting feedback: ' + err));
-  });
+    fetch("https://script.google.com/macros/s/AKfycby3IxK4XBb9d9gn-xHviS43o_CDCB8LHVt9ZxKCi5YIl10xlV_vqym2nRALtikE2GjU/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(formData),
+  mode: "cors"   // ✅ important for browsers
+})
+.then(res => res.json())
+.then(data => {
+  if (data.status === "success") {
+    alert("✅ Feedback submitted successfully!");
+    form.reset();
+  } else {
+    alert("Error submitting feedback: " + data.message);
+  }
+})
+.catch(err => {
+  alert("Error submitting feedback: " + err);
+});
 </script>
 </body>
 </html>
